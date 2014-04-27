@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <title>EmberTweet</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, inital-scale=1.0">
+    <link rel="stylesheet" href="app.css" />
+    <link href='http://fonts.googleapis.com/css?family=Voces' rel='stylesheet' type='text/css'>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ember.js/1.5.0/ember.debug.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+
+    <script type="text/x-handlebars">
+        <a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+
+        <div id="form">
+            @ {{ view App.SearchTextField placeholder="Twitter Handle" valueBinding="App.tweetsController.username" }}
+            <button  {{action "loadTweets" target="App.tweetsController"}}>Go!</button>
+        </div>
+        <div id="content">
+            <div id="recent">
+                <h3>Recent Searches</h3>
+                <ol>
+                    {{#each username in App.recentUsersController.reverse}}
+                        <li><a href="#" title="view again" {{action "searchAgain" username target="App.recentUsersController"}}>{{username}}</a>
+                            <a href="#" title="remove" {{action "removeUser" username target="App.recentUsersController"}}><span class="remove">[X]</span></a></li>
+                    {{/each}}
+                </ol>
+            </div>
+            <div id="tweet">
+                <h3>Latest Tweet</h3>
+                {{#each App.tweetsController}}
+                    <div class="box">
+                        <img class="avatar" {{bind-attr src="avatar"}} />
+                        <h3>{{screen_name}}</h3>
+                        <span>on {{date}}</span>
+                        <p class="text">{{text}}</p>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </script>
+
+</body>
+</html>

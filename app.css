@@ -1,0 +1,75 @@
+html, body {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Voces', 'cursive';
+    background-color: #f0f0f0;
+}
+
+#form {
+    margin: 0px;
+    color: #b0b0b0;
+    width: 100%;
+    height: 50px;
+    background-color: #000;
+    font-size: 16px;
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom:0px;
+}
+
+button {
+    height: 25px;
+}
+
+#content {
+    width: 100%;
+    height: 100%;
+    margin-top: 25px;
+}
+
+#recent {
+    width:20%;
+    min-height: 200px;
+    float: left;
+    border-right: 1px solid #d0d0d0;
+}
+
+#recent h3 {
+    text-align: center;
+}
+
+#recent ol {
+    list-style: none;
+}
+
+#recent .remove {
+    font-size: .6em;
+}
+
+#tweet {
+    width: 75%;
+    float: left;
+}
+
+#tweet h3 {
+    margin-left: 25px;
+}
+
+.avatar {
+    float: left;
+    margin: 25px;
+    margin-top: 0px;
+}
+
+.box h3 {
+    margin-bottom: 0px;
+}
+
+.box span {
+    font-size: .7em;
+}
+
+.text {
+    clear: both;
+    margin-left: 25px;
+}
